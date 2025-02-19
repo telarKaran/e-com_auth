@@ -42,8 +42,9 @@ FROM node:22-alpine
 
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm install -g nodemon
 RUN npm install
 COPY . .
+
+ENV NODE_ENV=production
 
 CMD ["npx", "ts-node", "src/server.ts"]
